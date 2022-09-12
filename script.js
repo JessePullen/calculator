@@ -1,3 +1,27 @@
+const clear = document.querySelector('.clear');
+const ac = document.querySelector('.ac');
+const percent = document.querySelector('.percent');
+const divide = document.querySelector('.divide');
+const multiply = document.querySelector('.multiply');
+const subtract = document.querySelector('.subtract');
+const add = document.querySelector('.add');
+const period = document.querySelector('.period');
+const equals = document.querySelector('.equals');
+const zero = document.querySelector('.0');
+const one = document.querySelector('.1');
+const two = document.querySelector('.2');
+const three = document.querySelector('.3');
+const four = document.querySelector('.4');
+const five = document.querySelector('.5');
+const six = document.querySelector('.6');
+const seven = document.querySelector('.7');
+const eight = document.querySelector('.8');
+const nine = document.querySelector('.9');
+const display = document.querySelector('.display');
+const totalDisplay = document.querySelector('.total-display');
+
+
+
 function add(num1, num2) {
     return num1 + num2;
 }
@@ -37,4 +61,7 @@ function operate() {
     return result;
 }
 
-console.log(operate());
+function runProgram() {
+}
+
+runProgram();
