@@ -7,34 +7,34 @@ const subtract = document.querySelector('.subtract');
 const add = document.querySelector('.add');
 const period = document.querySelector('.period');
 const equals = document.querySelector('.equals');
-const zero = document.querySelector('.0');
-const one = document.querySelector('.1');
-const two = document.querySelector('.2');
-const three = document.querySelector('.3');
-const four = document.querySelector('.4');
-const five = document.querySelector('.5');
-const six = document.querySelector('.6');
-const seven = document.querySelector('.7');
-const eight = document.querySelector('.8');
-const nine = document.querySelector('.9');
+const zero = document.querySelector('.zero');
+const one = document.querySelector('.one');
+const two = document.querySelector('.two');
+const three = document.querySelector('.three');
+const four = document.querySelector('.four');
+const five = document.querySelector('.five');
+const six = document.querySelector('.six');
+const seven = document.querySelector('.seven');
+const eight = document.querySelector('.eight');
+const nine = document.querySelector('.nine');
 const display = document.querySelector('.display');
 const totalDisplay = document.querySelector('.total-display');
 
 
 
-function add(num1, num2) {
+function addition(num1, num2) {
     return num1 + num2;
 }
 
-function subtract(num1, num2) {
+function subtraction(num1, num2) {
     return num1 - num2;
 }
 
-function multiply(num1, num2) {
+function multiplication(num1, num2) {
     return num1 * num2;
 }
 
-function divide(num1, num2) {
+function division(num1, num2) {
     return num1 / num2;
 }
 
@@ -47,13 +47,13 @@ function operate() {
     let result = 0;
 
     if (operator === '+') {
-        operatorType = add;
+        operatorType = addition;
     } else if (operator === '-') {
-        operatorType = subtract;
+        operatorType = ion;
     } else if (operator === '*') {
-        operatorType = multiply;
+        operatorType = multiplication;
     } else if (operator === '/') {
-        operatorType = divide;
+        operatorType =sion;
     }
 
     result = operatorType(num1, num2);
