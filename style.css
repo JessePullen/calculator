@@ -31,6 +31,29 @@ body {
     border-radius: 10px;
 }
 
+h1,
+p {
+    height: 50px;
+    display: flex;
+    justify-content: end;
+    margin: 0;
+    padding-right: 5px;
+}
+
+p {
+    font-size: 20px;
+    padding-right: 10px;
+    align-items: center;
+}
+
+h1 {
+    font-size: 60px;
+    align-items: flex-end;
+}
+
+
+
+
 .grid-container {
     margin-top: 15px;
     display: grid;
@@ -50,7 +73,8 @@ body {
     font-size: 30px;
 }
 
-.clear {
+.clear,
+.ac {
     background-color: indianred;
 }
 
