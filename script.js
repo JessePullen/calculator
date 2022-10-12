@@ -71,6 +71,24 @@ ac.addEventListener('click', () => {
     display.textContent = null;
 });
 
+//Adds number and operator to total array
+add.addEventListener('click', () => {
+    if (total.includes(' + ')) {
+        operate(' + ', total[0], display.textContent);
+        totalDisplay.textContent = null;
+    } else {
+        total.push(display.textContent, ' + ');
+        display.textContent = null;
+
+        iterateArray(total);
+    }
+});
+
+//Outputs the contents of the display in a better format and displays it on the screen
+function iterateArray(array) {
+    totalDisplay.textContent = (array.reduce((prevValue, currentValue) => prevValue + currentValue));
+}
+
 function addition(num1, num2) {
     return num1 + num2;
 }
