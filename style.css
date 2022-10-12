@@ -31,8 +31,8 @@ body {
     border-radius: 10px;
 }
 
-h1,
-p {
+.display,
+.total-display {
     height: 50px;
     display: flex;
     justify-content: end;
@@ -40,13 +40,13 @@ p {
     padding-right: 5px;
 }
 
-p {
+.total-display {
     font-size: 20px;
     padding-right: 10px;
     align-items: center;
 }
 
-h1 {
+.display {
     font-size: 60px;
     align-items: flex-end;
 }
