@@ -22,9 +22,56 @@ const totalDisplay = document.querySelector('.total-display');
 
 
 let total = [];
+let answer = 0;
 display.textContent = null;
 totalDisplay.textContent = total;
 
+//Takes items from array and calls operate function to perform relevant operation
+//displays the answer and updates array
+equals.addEventListener('click', () => {
+    if (total.length > 1) {
+        total.push(display.textContent);
+        let operator = total[1];
+        answer = operate(operator, Number(total[0]), Number(total[2]));
+        display.textContent = answer;
+        total = [];
+        total.push(display.textContent);
+        totalDisplay.textContent = null;
+        console.log(total);
+    }
+});
+
+add.addEventListener('click', () => {
+    let operator = ' + ';
+    total.push(display.textContent, operator);
+
+    display.textContent = null;
+    iterateArray(total);
+});
+
+subtract.addEventListener('click', () => {
+    let operator = ' - ';
+    total.push(display.textContent, operator);
+
+    display.textContent = null;
+    iterateArray(total);
+});
+
+divide.addEventListener('click', () => {
+    let operator = ' / ';
+    total.push(display.textContent, operator);
+
+    display.textContent = null;
+    iterateArray(total);
+});
+
+multiply.addEventListener('click', () => {
+    let operator = ' * ';
+    total.push(display.textContent, operator);
+
+    display.textContent = null;
+    iterateArray(total);
+});
 
 //Adds event listeners to buttons on the calculator
 zero.addEventListener('click', () => {
@@ -71,19 +118,6 @@ ac.addEventListener('click', () => {
     display.textContent = null;
 });
 
-//Adds number and operator to total array
-add.addEventListener('click', () => {
-    if (total.includes(' + ')) {
-        operate(' + ', total[0], display.textContent);
-        totalDisplay.textContent = null;
-    } else {
-        total.push(display.textContent, ' + ');
-        display.textContent = null;
-
-        iterateArray(total);
-    }
-});
-
 //Outputs the contents of the display in a better format and displays it on the screen
 function iterateArray(array) {
     totalDisplay.textContent = (array.reduce((prevValue, currentValue) => prevValue + currentValue));
@@ -108,9 +142,6 @@ function division(num1, num2) {
 
 //Takes an operator and 2 numbers and then calls the specified function to calculate the result
 function operate(operator, num1, num2) {
-    // let operator = prompt('+ - * /');
-    let result = 0;
-
     if (operator === ' + ') {
         operatorType = addition;
     } else if (operator === ' - ') {
@@ -120,8 +151,5 @@ function operate(operator, num1, num2) {
     } else if (operator === ' / ') {
         operatorType = division;
     }
-
-    result = operatorType(num1, num2);
-
-    display.textContent = result;
+    return result = operatorType(num1, num2);
 }
