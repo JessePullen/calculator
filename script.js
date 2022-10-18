@@ -112,7 +112,13 @@ nine.addEventListener('click', () => {
     display.textContent += 9;
 });
 period.addEventListener('click', () => {
-    display.textContent += '.';
+    if (!display.textContent.includes('.')) {
+        if (display.textContent == '') {
+            display.textContent += '0.';
+        } else {
+            display.textContent += '.';
+        }
+    }
 });
 
 //Clear buttons
