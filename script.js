@@ -80,6 +80,12 @@ equals.addEventListener('click', () => {
     sumEquals(operator);
 });
 
+percent.addEventListener('click', () => {
+    if (display.textContent) {
+        display.textContent = Number(display.textContent / 100);
+    }
+});
+
 //Adds event listeners to buttons on the calculator
 zero.addEventListener('click', () => {
     display.textContent += 0;
@@ -113,7 +119,7 @@ nine.addEventListener('click', () => {
 });
 period.addEventListener('click', () => {
     if (!display.textContent.includes('.')) {
-        if (display.textContent == '') {
+        if (display.textContent === '') {
             display.textContent += '0.';
         } else {
             display.textContent += '.';
