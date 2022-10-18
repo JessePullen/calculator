@@ -20,57 +20,64 @@ const nine = document.querySelector('.nine');
 const display = document.querySelector('.display');
 const totalDisplay = document.querySelector('.total-display');
 
-
 let total = [];
 let answer = 0;
 display.textContent = null;
 totalDisplay.textContent = total;
 
-//Takes items from array and calls operate function to perform relevant operation
-//displays the answer and updates array
-equals.addEventListener('click', () => {
+//Outputs the contents of the total array in a better format and displays it on the screen
+function iterateArray(array) {
+    totalDisplay.textContent = (array.reduce((prevValue, currentValue) => prevValue + currentValue));
+}
+
+//Calculate what is stored in the total array and displays result
+function sumEquals(operator) {
     if (total.length > 1) {
         total.push(display.textContent);
-        let operator = total[1];
         answer = operate(operator, Number(total[0]), Number(total[2]));
         display.textContent = answer;
         total = [];
         total.push(display.textContent);
         totalDisplay.textContent = null;
-        console.log(total);
     }
-});
+}
+
+//Calls the sumEquals function or uses the operator pressed and number on display
+function sumOperator(operator) {
+    if (total.length > 1) {
+        operator = total[1];
+        sumEquals(operator);
+    } else {
+        total = [];
+        total.push(display.textContent, operator);
+        iterateArray(total);
+        display.textContent = null;
+    }
+}
 
 add.addEventListener('click', () => {
     let operator = ' + ';
-    total.push(display.textContent, operator);
-
-    display.textContent = null;
-    iterateArray(total);
+    sumOperator(operator);
 });
 
 subtract.addEventListener('click', () => {
     let operator = ' - ';
-    total.push(display.textContent, operator);
-
-    display.textContent = null;
-    iterateArray(total);
+    sumOperator(operator);
 });
 
 divide.addEventListener('click', () => {
     let operator = ' / ';
-    total.push(display.textContent, operator);
-
-    display.textContent = null;
-    iterateArray(total);
+    sumOperator(operator);
 });
 
 multiply.addEventListener('click', () => {
     let operator = ' * ';
-    total.push(display.textContent, operator);
+    sumOperator(operator);
+});
 
-    display.textContent = null;
-    iterateArray(total);
+equals.addEventListener('click', () => {
+    let operator = total[1];
+    sumEquals(operator);
 });
 
 //Adds event listeners to buttons on the calculator
@@ -108,21 +115,18 @@ period.addEventListener('click', () => {
     display.textContent += '.';
 });
 
-//Function buttons
+//Clear buttons
 clear.addEventListener('click', () => {
     display.textContent = null;
     totalDisplay.textContent = null;
     total = [];
 });
+
 ac.addEventListener('click', () => {
     display.textContent = null;
 });
 
-//Outputs the contents of the display in a better format and displays it on the screen
-function iterateArray(array) {
-    totalDisplay.textContent = (array.reduce((prevValue, currentValue) => prevValue + currentValue));
-}
-
+//Operator functions
 function addition(num1, num2) {
     return num1 + num2;
 }
@@ -138,7 +142,6 @@ function multiplication(num1, num2) {
 function division(num1, num2) {
     return num1 / num2;
 }
-
 
 //Takes an operator and 2 numbers and then calls the specified function to calculate the result
 function operate(operator, num1, num2) {
