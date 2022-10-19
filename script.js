@@ -35,7 +35,15 @@ function sumEquals(operator) {
     if (total.length > 1) {
         total.push(display.textContent);
         answer = operate(operator, Number(total[0]), Number(total[2]));
+
         display.textContent = answer;
+        if (display.textContent.length > 9) {    
+            display.textContent = answer.toFixed(2);
+            if (display.textContent.length > 9) {
+                display.textContent = answer.toExponential(2);
+            }
+        }
+        
         total = [];
         total.push(display.textContent);
         totalDisplay.textContent = null;
@@ -90,52 +98,52 @@ percent.addEventListener('click', () => {
 zero.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 0;
-    }  
+    }
 });
 one.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 1;
-    }  
+    }
 });
 two.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 2;
-    }  
+    }
 });
 three.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 3;
-    }  
+    }
 });
 four.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 4;
-    }  
+    }
 });
 five.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 5;
-    }  
+    }
 });
 six.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 6;
-    }  
+    }
 });
 seven.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 7;
-    }  
+    }
 });
 eight.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 8;
-    }  
+    }
 });
 nine.addEventListener('click', () => {
     if (display.textContent.length < 9) {
         display.textContent += 9;
-    }  
+    }
 });
 
 period.addEventListener('click', () => {
