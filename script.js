@@ -37,13 +37,13 @@ function sumEquals(operator) {
         answer = operate(operator, Number(total[0]), Number(total[2]));
 
         display.textContent = answer;
-        if (display.textContent.length > 9) {    
+        if (display.textContent.length > 9) {
             display.textContent = answer.toFixed(2);
             if (display.textContent.length > 9) {
                 display.textContent = answer.toExponential(2);
             }
         }
-        
+
         total = [];
         total.push(display.textContent);
         totalDisplay.textContent = null;
@@ -53,8 +53,10 @@ function sumEquals(operator) {
 //Calls the sumEquals function or uses the operator pressed and number on display
 function sumOperator(operator) {
     if (total.length > 1) {
-        operator = total[1];
-        sumEquals(operator);
+        if (display.textContent !== '') {
+            operator = total[1];
+            sumEquals(operator);
+        }
     } else {
         total = [];
         total.push(display.textContent, operator);
