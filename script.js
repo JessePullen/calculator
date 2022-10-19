@@ -1,5 +1,5 @@
 const clear = document.querySelector('.clear');
-const ac = document.querySelector('.ac');
+const ce = document.querySelector('.ce');
 const percent = document.querySelector('.percent');
 const divide = document.querySelector('.divide');
 const multiply = document.querySelector('.multiply');
@@ -155,7 +155,7 @@ clear.addEventListener('click', () => {
     total = [];
 });
 
-ac.addEventListener('click', () => {
+ce.addEventListener('click', () => {
     display.textContent = null;
 });
 
